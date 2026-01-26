@@ -1,0 +1,65 @@
+The instructions from "How to Import Data to Rstudio" were understood, I have no questions or comments. My last professor that I had for R programming gave us the same file for us read and keep if we needed it. 
+
+Our assignment for this week was to test the following code and determine whether or not corrections needed to be made and if so, what would those be? 
+
+Here is the code provided:
+
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+
+
+
+myMean <- function(assignment2) {
+
+  return(sum(assignment) / length(someData))
+
+}
+
+
+
+When I run this code in Rstudio is receive the following output:
+Error in myMean(assignment2) : object 'assignment' not found
+
+The reason as to why I get this error is because "assignment" has not been created. R can't find assignment because I have not created the conditions in R for it exist. But what does exist is assignment2. It has been given numerical value therefore it now has a specific purpose or value in R.  Let's see what happens when "assignment" is corrected to  "assignment2"
+
+New code: 
+
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+
+myMean <- function(assignment2) {
+
+  return(sum(assignment2) / length(someData))
+
+}
+
+myMean(assignment2)
+
+
+
+This is the output we get when we run the code again: 
+
+Error in myMean(assignment2) : object 'someData' not found
+
+The error is encountered again, but this time its for another variable named "someData". And just like "assignment" we have not given any value to a variable named "someData". As a result R does not recognize "someData". As a result when we try to run the function it gives us that error. Let's see what happens with both variable names are corrected. 
+
+New code: 
+
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+
+myMean <- function(assignment2) {
+
+  return(sum(assignment2) / length(assignment2))
+
+}
+
+myMean(assignment2)
+
+
+
+Output: 
+
+[1] 19.25
+
+
+
+Awesome, after corrected the names of the variables and using a variable that we had already defined we now have a function that properly gives us the mean. 
+
