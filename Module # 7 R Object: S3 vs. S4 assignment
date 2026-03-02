@@ -1,0 +1,36 @@
+Example of an S3
+We know that the mtcars dataset falls into the S3 category because it meets the following criteria: 
+
+data("mtcars")
+class(mtcars)
+
+Output:
+[1] "data.frame"
+
+This tells us that mtcars is an S3 object of class "data.frame".
+
+We also know it falls into S3 category because a generic function can be assigned:
+summary(mtcars)
+print(mtcars)
+plot(mtcars)
+
+It is not an S4 because S4 is strict, formal, and complex. It also uses the set class() function and the new() function to create the object. 
+
+Example of an S4:
+
+setClass("Car",
+         slots = list(
+           brand = "character",
+           year = "numeric",
+           electric = "logical"
+         ))
+
+# Create S4 object
+car1 <- new("Car",
+            brand = "Tesla",
+            year = 2024,
+            electric = TRUE)
+
+car1
+
+This example is a S4 object because it follows the formal structure required by the S4 object system when using R. The class is specifically defined using setClass(). In that definition, each slot such as the brand, year, and electric is declared along with its required data type. This formal class definition is a key feature of the S4 category. One must define the structure of the object before creating it. Second, the object car1 is created using the new() function, which is required for S4 objects. When the new "Car" is called, R checks that the values match the specified slot types. For example, electric must be either TRUE or FALSE because it was defined as logical. This strict type checking and formal validation are characteristics of S4. In contrast, S3 does not require formal slot definitions or strict type enforcement, it is a more fluid in design when in contrast to S4.
