@@ -1,0 +1,17 @@
+
+x = read.table(file.choose(), header = TRUE, sep = ",")
+
+install.packages("plyr")
+library(plyr)
+
+student_mean = ddply(x, "Sex", transform, Grade.Average = mean(Grade))
+print(student_mean)
+
+
+write.table(student_mean, "Sorted_Average", sep = ",")
+
+
+
+filtered_students = subset(x, grepl("[iI]", x$Name))
+
+write.table(filtered_students, "DataSubset", sep = ",")
