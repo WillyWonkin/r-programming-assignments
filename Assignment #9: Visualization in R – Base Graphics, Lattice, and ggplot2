@@ -1,0 +1,53 @@
+data("mtcars")
+head(mtcars)
+
+plot(mtcars$wt, mtcars$mpg,
+     main = "Base R: MPG vs Weight",
+     xlab = "Weight",
+     ylab = "Miles Per Gallon")
+install.packages("lattice")
+library("lattice")
+
+
+hist(mtcars$mpg,
+     main = "Base R: Distribution of MPG",
+     xlab = "Miles Per Gallon")
+
+xyplot(mpg ~ wt | factor(cyl),
+       data = mtcars,
+       main = "Lattice: MPG vs Weight by Cylinders",
+       xlab = "Weight",
+       ylab = "Miles Per Gallon")
+
+bwplot(mpg ~ factor(cyl),
+       data = mtcars,
+       main = "Lattice: MPG by Cylinder Count",
+       xlab = "Cylinders",
+       ylab = "Miles Per Gallon")
+
+
+
+
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "ggplot2: MPG vs Weight with Regression",
+       x = "Weight",
+       y = "Miles Per Gallon")
+
+
+
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(binwidth = 2) +
+  facet_wrap(~ cyl) +
+  labs(title = "ggplot2: MPG Distribution by Cylinders",
+       x = "Miles Per Gallon")
+
+
+
+
+The syntax and workflow are different across base R, lattice, and ggplot2. Base R graphics use simple plotting functions where variables from the dataset are passed directly into the function, which makes them easy to use for basic visuals. Lattice graphics rely on a formula style and are designed for conditioned plots, which makes it easier to compare relationships across groups such as the number of cylinders in the mtcars dataset. In contrast, ggplot2 follows the grammar of graphics approach where plots are built in layers using aesthetics and geometric objects.
+Out of the three systems, ggplot2 provided the most control and produced the most polished looking visualizations with relatively little code. The layered structure allows additional features like regression lines, color groupings, and facets to be added easily. One challenge when switching between these systems is remembering the different syntax styles each one uses. Base R focuses on direct plotting commands, lattice uses formula based graphics, and ggplot2 requires thinking in terms of layers and aesthetics, which can take some time to get used to.
+
+
