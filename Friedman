@@ -1,0 +1,30 @@
+Package: Friedman
+
+Title: Simple Tools for Exploratory Data Analysis
+
+Version: 0.0.0.6000
+
+Authors@R: 
+
+    person("Kristian", "Sanders", email = "zbkristian5000@gmail.com", 
+
+           role = c("aut", "cre"))
+
+Description: 
+
+    Provides simple and efficient functions for exploratory data analysis, 
+
+    including summary statistics, visualization helpers, and data cleaning 
+
+    utilities. The package is designed for students and beginner analysts 
+
+    who want quick insights without complex workflows.
+
+Depends: R (>= 3.1.2)
+
+Imports: ggplot2, dplyr
+
+License: CC0
+
+LazyData: true
+
